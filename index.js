@@ -4,12 +4,8 @@ const currentPlayerId = 'payer2'
 
 const game = {
     players: {
-        'payer1': { x: 1, y: 1},
         'payer2': { x: 9, y: 9}
-    },
-    fruits: {
-        'fruit1': { x: 3, y: 1}
-    } 
+    }
 }
 
 document.addEventListener('keydown', handleKeydown)
@@ -41,12 +37,6 @@ function renderScreen() {
         const player = game.players[payerId]
         context.fillStyle = 'black'
         context.fillRect(player.x, player.y, 1, 1)
-    }
-
-    for (let fruitId in game.fruits) {
-        const fruit = game.fruits[fruitId]
-        context.fillStyle = 'green'
-        context.fillRect(fruit.x, fruit.y, 1, 1)
     }
     requestAnimationFrame(renderScreen)
 }
