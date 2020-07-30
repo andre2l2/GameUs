@@ -9,11 +9,11 @@ let points2 = 0;
 
 const game = {
     players: {
-        'payer1': { x: 1, y: 2 },
-        'payer2': { x: 9, y: 9 }
+        'payer1': { x: 0, y: 14 },
+        'payer2': { x: 14, y: 0 }
     },
     fruit: {
-        'fruit': { x: 1, y: 1 }
+        'fruit': { x: Math.floor(Math.random() * 15), y: Math.floor(Math.random() * 15) }
     }
 }
 
@@ -55,7 +55,7 @@ function handleKeydown(event) {
 renderScreen()
 function renderScreen() {
     context.fillStyle = 'white';
-    context.clearRect(0, 0, 10, 10);
+    context.clearRect(0, 0, 15, 15);
 
     for (let payerId in game.players) {
         const player = game.players[payerId];
@@ -89,14 +89,14 @@ function check() {
     if (positionFrut.x == positionPlayer2.x) {
         if (positionFrut.y == positionPlayer2.y) {
             pointsRender(2);
-            game.fruit.fruit = { x: Math.floor(Math.random() * 10), y: Math.floor(Math.random() * 10) };
+            game.fruit.fruit = { x: Math.floor(Math.random() * 15), y: Math.floor(Math.random() * 15) };
         }
     }
 
     if (positionFrut.x == positionPlayer1.x) {
         if (positionFrut.y == positionPlayer1.y) {
             pointsRender(1);
-            game.fruit.fruit = { x: Math.floor(Math.random() * 10), y: Math.floor(Math.random() * 10) };
+            game.fruit.fruit = { x: Math.floor(Math.random() * 15), y: Math.floor(Math.random() * 15) };
         }
     }
 }
