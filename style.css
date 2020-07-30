@@ -24,6 +24,14 @@ div.poit {
     padding: 10px;
 }
 
+div.poit div {
+    color: blacks;
+}
+
+div.poit div + div {
+    color: coral;
+}
+
 #screen {
     border: 10px solid #ccc;
     image-rendering: pixelated;
