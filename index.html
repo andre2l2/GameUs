@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>GameUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="option">
+        <nav>
+            <h1 class="animationTop">Gameus</h1>
+            <button class="animationLeft">1 player</button>
+            <button class="animationRight">2 player</button>
+        </nav>
+    </div>
     <div class="poit">
         <div class="p1">
             <span>0</span>
@@ -14,10 +22,17 @@
         <div class="p2">
             <span>0</span>
         </div>
+        <div class="menu">
+            <button>Menu</button>
+        </div>
     </div>
-    <canvas id="screen" width="15px" height="15px"></canvas>
+    <div>
+        <h1>Gameus</h1>
+        <canvas id="screen" width="15px" height="15px"></canvas>
+    </div>
 
 
-   <script src="index.js"></script>
+    <script src="./javascript/option.js"></script>
+   <script src="./javascript/index.js"></script>
 </body>
 </html>

@@ -1,9 +1,6 @@
 const screen = document.getElementById('screen');
 const context = screen.getContext('2d');
 
-const currentPlayerId1 = 'payer1';
-const currentPlayerId2 = 'payer2';
-
 let points1 = 0;
 let points2 = 0;
 
@@ -13,7 +10,7 @@ const game = {
         'payer2': { x: 14, y: 0 }
     },
     fruit: {
-        'fruit': { x: Math.floor(Math.random() * 15), y: Math.floor(Math.random() * 15) }
+        'fruit': { x: 7, y: 7 }
     }
 }
 
@@ -21,8 +18,8 @@ document.addEventListener('keydown', handleKeydown);
 
 function handleKeydown(event) {
     const keyPressed = event.key;
-    const player1 = game.players[currentPlayerId1];
-    const player2 = game.players[currentPlayerId2];
+    const player1 = game.players['payer1'];
+    const player2 = game.players['payer2'];
     
     if (keyPressed === 'ArrowUp' && player2.y - 1 >= 0) {
         player2.y = player2.y - 1;
@@ -49,10 +46,8 @@ function handleKeydown(event) {
     if (keyPressed === 'd' && player1.x + 1 < screen.width) {
         player1.x = player1.x + 1;
     }
-
 }
 
-renderScreen()
 function renderScreen() {
     context.fillStyle = 'white';
     context.clearRect(0, 0, 15, 15);
@@ -60,10 +55,11 @@ function renderScreen() {
     for (let payerId in game.players) {
         const player = game.players[payerId];
 
-        if (game.players.payer1 == player) {
+        if ((game.players.payer1 == player) && twoPalyer) {
             context.fillStyle = 'black';
             context.fillRect(player.x, player.y, 1, 1);
         }
+
 
         if (game.players.payer2 == player) {
             context.fillStyle = 'orange';
@@ -80,6 +76,7 @@ function renderScreen() {
     check();
     requestAnimationFrame(renderScreen)
 }
+renderScreen()
 
 function check() {
     const positionFrut = game.fruit.fruit;
